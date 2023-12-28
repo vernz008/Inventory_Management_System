@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavigationBar from "../components/NavigationBar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import axiosAuth from "../utils/axios/axios-auth";
 
 const EditProduct = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const EditProduct = () => {
   });
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/product/${id}`).then((res) => {
+    axiosAuth.get(`/api/product/${id}`).then((res) => {
       setProductInput({
         ...product_inputs,
         name: res.data.product_name,
@@ -31,8 +32,8 @@ const EditProduct = () => {
   const send = (e) => {
     e.preventDefault();
 
-    axios
-      .put(`http://127.0.0.1:8000/api/product/${id}`, {
+    axiosAuth
+      .put(`/api/product/${id}`, {
         product_name: product_inputs.name,
         product_code: product_inputs.code,
         description: product_inputs.description,

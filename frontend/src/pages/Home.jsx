@@ -15,7 +15,7 @@ const Home = () => {
               Inventory Management System
             </h1>
             <div className="mt-2">
-              <span>
+              <span className="flex text-justify">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Deleniti corrupti quidem modi fugit quis repellat illum,
                 deserunt sint minima optio velit obcaecati facere at! Recusandae
@@ -23,7 +23,7 @@ const Home = () => {
               </span>
             </div>
             <div className="mt-2">
-              <span>
+              <span className="flex text-justify">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Deleniti corrupti quidem modi fugit quis repellat illum,
                 deserunt sint minima optio velit obcaecati facere at! Recusandae

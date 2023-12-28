@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosAuth from "../utils/axios/axios-auth";
 
 const AddProductForm = ({ setModal }) => {
   const [product, setProduct] = useState([]);
@@ -12,7 +13,7 @@ const AddProductForm = ({ setModal }) => {
   });
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/product").then((res) => {
+    axios.get("/api/product").then((res) => {
       setProduct(res.data);
     });
   }, []);
@@ -20,8 +21,8 @@ const AddProductForm = ({ setModal }) => {
   const send = (e) => {
     e.preventDefault();
 
-    axios
-      .post("http://127.0.0.1:8000/api/product", {
+    axiosAuth
+      .post("/api/product", {
         product_name: product_inputs.product_name,
         product_code: product_inputs.product_code,
         description: product_inputs.product_description,

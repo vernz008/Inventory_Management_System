@@ -5,6 +5,7 @@ import AddProductForm from "../components/AddProductForm";
 import { useNavigate } from "react-router-dom";
 import trash from "../images/trash.png";
 import draw from "../images/draw.png";
+import axiosAuth from "../utils/axios/axios-auth";
 
 const Product = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Product = () => {
   const [editmodal, setEditModal] = useState(false);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/product/").then((res) => {
+    axiosAuth.get("http://127.0.0.1:8000/api/product/").then((res) => {
       setProduct(res.data);
     });
   }, []);
@@ -23,7 +24,7 @@ const Product = () => {
   };
 
   const deleteProduct = (id) => {
-    axios
+    axiosAuth
       .delete(`http://127.0.0.1:8000/api/product/${id}`)
       .then((res) => {
         alert("Deleted Successfully!");
